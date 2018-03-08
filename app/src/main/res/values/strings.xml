@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">201801307-AZ-NYCSchools</string>
+    <string name="nyc_schools">NYC Schools</string>
+    <string name="school_name">School name:</string>
+    <string name="address">School address</string>
+    <string name="address_line_1">address line 1</string>
+    <string name="city">city</string>
+    <string name="state">state</string>
+    <string name="zip">zip</string>
+    <string name="school_search">school search</string>
+</resources>

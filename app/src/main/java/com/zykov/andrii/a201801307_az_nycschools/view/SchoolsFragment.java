@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by andrii on 3/7/18.
@@ -53,6 +55,9 @@ public class SchoolsFragment extends Fragment implements ISchoolView, SchoolsAda
 
     @BindView(R.id.schools_fragment_recycler_view)
     RecyclerView schoolsRecyclerView;
+
+    @BindView(R.id.school_fragment_reload_button)
+    Button reloadButton;
 
     public static SchoolsFragment getInstance() {
         return new SchoolsFragment();
@@ -90,15 +95,21 @@ public class SchoolsFragment extends Fragment implements ISchoolView, SchoolsAda
         schoolsRecyclerView.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void hideProgressBar() {
-        progressBar.setVisibility(View.GONE);
+    @OnClick({R.id.school_fragment_reload_button})
+    public void onReloadChoolsClicked(){
+        reloadButton.setVisibility(View.GONE);
+        presenter.loadSchools();
     }
 
     @Override
     public void showError(String s) {
-        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT);
-        hideProgressBar();
+        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showSchoolDetails(SchoolWrapper schoolWrapper) {
+        if(getActivity() != null && getActivity() instanceof SchoolFragmentListener)
+            ((SchoolFragmentListener) getActivity()).showSchoolDetails(schoolWrapper);
     }
 
     @Override
@@ -107,9 +118,13 @@ public class SchoolsFragment extends Fragment implements ISchoolView, SchoolsAda
     }
 
     @Override
-    public void showSchoolDetails(SchoolWrapper schoolWrapper) {
-        if(getActivity() != null && getActivity() instanceof SchoolFragmentListener)
-            ((SchoolFragmentListener) getActivity()).showSchoolDetails(schoolWrapper);
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showReloadButton() {
+        reloadButton.setVisibility(View.VISIBLE);
     }
 
     @Override

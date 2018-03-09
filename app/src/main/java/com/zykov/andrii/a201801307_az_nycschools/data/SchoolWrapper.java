@@ -38,6 +38,10 @@ public class SchoolWrapper {
     @Json(name = "longitude")
     private Double lng;
 
+    public SchoolWrapper(String schoolName){
+        this.schoolName = schoolName;
+    }
+
     public Double getLat() {
         return lat;
     }

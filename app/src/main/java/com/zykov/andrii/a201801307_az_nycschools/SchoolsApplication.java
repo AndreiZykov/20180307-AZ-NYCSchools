@@ -3,6 +3,7 @@ package com.zykov.andrii.a201801307_az_nycschools;
 import android.app.Application;
 
 import com.zykov.andrii.a201801307_az_nycschools.di.AppComponent;
+import com.zykov.andrii.a201801307_az_nycschools.di.AppModule;
 import com.zykov.andrii.a201801307_az_nycschools.di.DaggerAppComponent;
 import com.zykov.andrii.a201801307_az_nycschools.di.NetworkModule;
 import com.zykov.andrii.a201801307_az_nycschools.di.SchoolDetailsPresenterModule;
@@ -22,6 +23,7 @@ public class SchoolsApplication extends Application {
     public void onCreate() {
         super.onCreate();
         appComponent = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
                 .networkModule(new NetworkModule(BASE_URL))
                 .schoolsFragmentPresenterModule(new SchoolsFragmentPresenterModule())
                 .schoolDetailsPresenterModule(new SchoolDetailsPresenterModule())

@@ -26,6 +26,11 @@ public class SchoolSatWrapper {
     @Json(name = "sat_writing_avg_score")
     String writingAvgScore;
 
+    public SchoolSatWrapper(String schoolName, String dbn){
+        this.schoolName = schoolName;
+        this.dbn = dbn;
+    }
+
     public String getSchoolName() {
         return schoolName;
     }

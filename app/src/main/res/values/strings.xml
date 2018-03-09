@@ -8,4 +8,7 @@
     <string name="state">state</string>
     <string name="zip">zip</string>
     <string name="school_search">school search</string>
+    <string name="load_schools_error">Can not load schools</string>
+    <string name="load_sat_error">Error loading SATs</string>
+    <string name="try_again">Try Again!</string>
 </resources>

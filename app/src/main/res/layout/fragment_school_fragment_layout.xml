@@ -7,6 +7,14 @@
     android:focusable="true">
 
 
+    <Button
+        android:id="@+id/school_fragment_reload_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/try_again"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
     <ProgressBar
         android:id="@+id/school_fragment_progress_bar"
         android:layout_width="60dp"

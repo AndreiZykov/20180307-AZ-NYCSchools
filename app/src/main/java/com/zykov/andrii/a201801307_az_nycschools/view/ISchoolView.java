@@ -10,8 +10,9 @@ import java.util.List;
 
 public interface ISchoolView {
     void showSchools(List<SchoolWrapper> schoolWrappers);
-    void hideProgressBar();
     void showError(String s);
-    void showProgressBar();
     void showSchoolDetails(SchoolWrapper schoolWrapper);
+    void showProgressBar();
+    void hideProgressBar();
+    void showReloadButton();
 }

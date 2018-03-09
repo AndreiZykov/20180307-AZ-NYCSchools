@@ -60,7 +60,6 @@ public class SchoolDetailsFragment extends Fragment implements ISchoolDetailsVie
 
     public interface ISchoolDetailsPresenter {
         void bindView(ISchoolDetailsView view);
-
         void showSchoolDetails(SchoolWrapper schoolWrapper);
     }
 

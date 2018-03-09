@@ -1,5 +1,7 @@
 package com.zykov.andrii.a201801307_az_nycschools.di;
 
+import android.app.Application;
+
 import com.zykov.andrii.a201801307_az_nycschools.presenter.SchoolDetailsPresenterImpl;
 import com.zykov.andrii.a201801307_az_nycschools.presenter.SchoolsPresenterImpl;
 import com.zykov.andrii.a201801307_az_nycschools.utils.nycschoolservice.NYCSchoolsAPI;
@@ -20,8 +22,8 @@ public class SchoolsFragmentPresenterModule {
 
     @Singleton
     @Provides
-    public SchoolsFragment.ISchoolsFragmentPresenter providePresenter(NYCSchoolsAPI nycSchoolsAPI){
-        return new SchoolsPresenterImpl(nycSchoolsAPI);
+    public SchoolsFragment.ISchoolsFragmentPresenter providePresenter(NYCSchoolsAPI nycSchoolsAPI, Application application){
+        return new SchoolsPresenterImpl(nycSchoolsAPI, application);
     }
 
 }

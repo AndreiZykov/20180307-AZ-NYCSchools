@@ -32,7 +32,7 @@ public class NetworkModule {
 
     @Singleton
     @Provides
-    public Retrofit provideRetrofir(OkHttpClient client){
+    public Retrofit provideRetrofit(OkHttpClient client){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseURL)
                 .client(client)
